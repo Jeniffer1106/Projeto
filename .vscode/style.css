@@ -1,0 +1,172 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --text-color: rgb(254, 254, 254);
+  --bg-url: url(./assets/bg-mobile.jpg);  /* Caminho da imagem de fundo */
+  --stroke-color: rgba(255, 255, 255, 0.5);
+  --surface-color: rgba(255, 255, 255, 0.05);
+  --surface-color-hover: rgba(255, 255, 255, 0.1);
+  --highlight-color: rgba(255, 255, 255, 0.2);
+}
+
+:root {
+  --bg-url: url(./assets/bg-mobile.jpg);
+  
+}
+
+body.light {
+  --bg-url: url(./assets/bg-mobile-light.jpg);
+  --text-color: rgb(2, 2, 2);
+   --bg-url: url(./assets/bg-mobile-light.jpg);  /* Caminho da imagem de fundo */
+  --stroke-color: rgba(255, 255, 255, 0.5);
+  --surface-color: rgba(70, 61, 61, 0.05);
+  --surface-color-hover: rgba(116, 96, 96, 0.1);
+  --highlight-color: rgba(44, 39, 46, 0.2);
+}
+
+@media (min-width: 700px) {
+  :root {
+    --bg-url: url(./assets/bg-desktop.jpg);
+  }
+
+  body.light {
+    --bg-url: url(./assets/bg-desktop-light.jpg);
+  }
+}
+
+
+
+body {
+  background: var(--bg-url) no-repeat top center/cover;
+  font-family: "Inter", sans-serif;
+  color: var(--text-color);
+}
+
+body * {
+  color: var(--text-color);
+}
+
+#container {
+  width: 360px;
+  margin: 56px auto 0;
+  padding: 0 24px;
+}
+
+#profile {
+  text-align: center;
+  padding: 24px;
+}
+
+#profile img {
+  width: 112px;
+}
+
+#profile p {
+  font-weight: 500;
+  line-height: 24px;
+  margin-top: 8px;
+}
+
+/* Switch */
+#switch {
+  position: relative;
+  width: 64px;
+  height: 32px;
+  margin: 4px auto;
+  background: var(--surface-color);
+  border-radius: 9999px;
+  border: 1px solid var(--stroke-color);
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#switch .knob {
+  width: 28px;
+  height: 28px;
+  background-color: white;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 2px;
+  transform: translateY(-50%);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 18px;
+  transition: transform 0.3s ease, background-image 0.3s ease;
+}
+
+body:not(.light) #switch .knob {
+  background-image: url(./assets/moon-star.svg); /* Lua no tema escuro */
+  transform: translateY(-50%) translateX(0); /* Move para a esquerda */
+}
+
+body.light #switch .knob {
+  background-image: url(./assets/sun.svg); /* Sol no tema claro */
+  transform: translateY(-50%) translateX(36px); /* Move para a direita */
+}
+
+body:not(.light) #switch {
+  background-color: var(--surface-color); /* Cor de fundo para o tema escuro */
+}
+
+body.light #switch {
+  background-color: var(--highlight-color); /* Cor de fundo para o tema claro */
+}
+
+ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 24px 0;
+}
+
+ul li a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 16px 24px;
+  background: var(--surface-color);
+  border: 1px solid var(--stroke-color);
+  border-radius: 8px;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  text-decoration: none;
+  font-weight: 500;
+  transition: background 0.5s;
+}
+
+ul li a:hover {
+  background: var(--surface-color-hover);
+  border: 1px solid var(--text-color);
+}
+
+#social-links {
+  display: flex;
+  justify-content: center;
+  padding: 24px 0;
+  font-size: 24px;
+}
+
+#social-links a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  border-radius: 50%;
+  transition: background 0.2s;
+}
+
+#social-links a:hover {
+  background: var(--highlight-color);
+}
+
+footer {
+  padding: 24px 0;
+  font-size: 14px;
+  text-align: center;
+}
