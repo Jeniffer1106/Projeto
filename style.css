@@ -109,6 +109,27 @@ body.light #switch .knob {
   transform: translateY(-50%) translateX(36px); /* Move para a direita */
 }
 
+#switch {
+  position: relative;
+  width: 64px;
+  height: 32px;
+  margin: 4px auto;
+  background: var(--surface-color);
+  border-radius: 9999px;
+  border: 1px solid var(--stroke-color);
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+/* <-- AQUI ADICIONA ISSO 👇 */
+#switch:hover {
+  box-shadow: 0 0 12px var(--highlight-color);
+  transition: box-shadow 0.3s ease;
+}
+
+
+
+
 body:not(.light) #switch {
   background-color: var(--surface-color); /* Cor de fundo para o tema escuro */
 }
